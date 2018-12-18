@@ -1,0 +1,12 @@
+@import "var";
+.dhtmlweb {
+    [disabled] {
+        cursor: not-allowed;
+        opacity: $disabledOpacity;
+        &:hover, &:focus, &:active {
+            opacity: $disabledOpacity;
+        }
+    }
+    @import "tree";
+    @import "select";
+}

@@ -1,0 +1,26 @@
+.dweb-select {
+    display: inline-block;
+    width: 100%;
+    .dweb-select-current {
+        height: 24px;
+        border: 1px solid $borderColor;
+        padding: 2px;
+    }
+    .dweb-select-options {
+        cursor: default;
+        background: #fff;
+        display: none;
+        position: absolute;
+        border: 1px solid $borderColor;
+        .option {
+            height: 20px;
+            padding: 2px;
+            &:hover {
+                background: $hoverColor;
+            }
+            &.selected {
+                background: $selectedColor;
+            }
+        }
+    }
+}

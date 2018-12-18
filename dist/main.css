@@ -1,0 +1,41 @@
+.dhtmlweb [disabled] {
+  cursor: not-allowed;
+  opacity: 0.4; }
+  .dhtmlweb [disabled]:hover, .dhtmlweb [disabled]:focus, .dhtmlweb [disabled]:active {
+    opacity: 0.4; }
+
+.dhtmlweb .dweb-tree {
+  cursor: default; }
+  .dhtmlweb .dweb-tree.tree-block .tree-row, .dhtmlweb .dweb-tree .tree-block .tree-row {
+    padding: 2px 0;
+    border-radius: 2px; }
+    .dhtmlweb .dweb-tree.tree-block .tree-row .arrow, .dhtmlweb .dweb-tree .tree-block .tree-row .arrow {
+      display: inline-block;
+      width: 14px;
+      line-height: 20px; }
+    .dhtmlweb .dweb-tree.tree-block .tree-row:hover, .dhtmlweb .dweb-tree .tree-block .tree-row:hover {
+      background: #eee; }
+    .dhtmlweb .dweb-tree.tree-block .tree-row.selected, .dhtmlweb .dweb-tree .tree-block .tree-row.selected {
+      background: #ccc; }
+
+.dhtmlweb .dweb-select {
+  display: inline-block;
+  width: 100%; }
+  .dhtmlweb .dweb-select .dweb-select-current {
+    height: 24px;
+    border: 1px solid #ababab;
+    padding: 2px; }
+  .dhtmlweb .dweb-select .dweb-select-options {
+    cursor: default;
+    background: #fff;
+    display: none;
+    position: absolute;
+    border: 1px solid #ababab; }
+    .dhtmlweb .dweb-select .dweb-select-options .option {
+      height: 20px;
+      padding: 2px; }
+      .dhtmlweb .dweb-select .dweb-select-options .option:hover {
+        background: #eee; }
+      .dhtmlweb .dweb-select .dweb-select-options .option.selected {
+        background: #ccc; }
+

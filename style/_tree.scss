@@ -1,0 +1,20 @@
+.dweb-tree {
+    cursor: default;
+    &.tree-block, .tree-block {
+        .tree-row {
+            padding: 2px 0;
+            border-radius: 2px;
+            .arrow {
+                display: inline-block;
+                width: 14px;
+                line-height: 20px;
+            }
+            &:hover {
+                background: #eee;
+            }
+            &.selected {
+                background: #ccc;
+            }
+        }
+    }
+}
