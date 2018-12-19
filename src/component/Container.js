@@ -1,6 +1,5 @@
 import Component from "./Component";
 import Util from "../util/Util";
-import FlowLayout from "../layout/FlowLayout";
 import GridLayout from "../layout/GridLayout";
 
 export default class Container extends Component {
@@ -34,7 +33,9 @@ export default class Container extends Component {
         }
     }
     getLayout() {
-        return this.layoutor || new FlowLayout(this, {});
+        return this.layoutor || new GridLayout({
+            numberOfColumn: 1
+        });
     }
     setLayout(layoutor) {
         this.layoutor = layoutor;

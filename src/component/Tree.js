@@ -9,8 +9,9 @@ export default class Tree extends Component {
         this.template = `<div class="dweb-tree tree-item" w-attr="id disabled:isDisabled()"><div class="tree-block"></div></div>`;
         this.bind("html.click", (tree, evt) => {
             const $target = $(evt.target);
-            const $row = this.getTreeRowEl(evt);
-            const rowId = $row.parent().attr("id");
+            const $item = this.getTreeItemEl(evt);
+            const $row = $item.children(".tree-row");
+            const rowId = $item.attr("id");
             if ($target.hasClass("arrow")) {
                 if ($target.hasClass("expanded")) {
                     this.collapse(rowId);
@@ -97,10 +98,10 @@ export default class Tree extends Component {
         }
         this.trigger("afterExpanded", this, id);
     }
-    getTreeRowEl(evt) {
+    getTreeItemEl(evt) {
         let $target = $(evt.target);
         while($target.length) {
-            if ($target.hasClass("tree-row")) {
+            if ($target.hasClass("tree-item")) {
                 return $target;
             }
             $target = $target.parent();

@@ -1,20 +1,18 @@
 import Data from "../data/Data";
 import Util from "../util/Util";
 import Log from "../util/Log";
+import Watcher from "../util/Watcher";
 
 export default class Component extends Data {
     constructor() {
         super();
         this.__bindHtmlEvents = {};
         this.__models = {};
+        this.__properties = {};
     }
 
     isMonted() {
         return this.$el && this.$el.parents("body").length;
-    }
-    
-    getModel(name) {
-        return this.view.getModel(name);
     }
 
     /**
@@ -62,15 +60,16 @@ export default class Component extends Data {
     }
 
     isDisabled() {
-        if (!this.get("disabled")) {
-            const parent = this.getParent();
-            if (parent) {
-                return this.parent.isDisabled();
-            } else {
-                return false;
-            }
+        let disabled = this.get("disabled");
+        if (disabled === "true" || disabled === true) {
+            return true;
         }
-        return true;
+        const parent = this.getParent();
+        if (parent) {
+            return this.parent.isDisabled();
+        } else {
+            return false;
+        }
     }
 
     render() {
@@ -94,8 +93,26 @@ export default class Component extends Data {
                 return parent.getModel(name);
             }
         }
+        return model;
     }
     setModel(name, model) {
         this.__models[name] = model;
+    }
+    setProperties(properties) {
+        Util.each(properties, (prop, propName) => {
+            if (this.__properties[propName]) {
+                this.__properties[propName].destroy();
+            }
+            const propSplit = prop.split(".");
+            this.__properties[propName] = Watcher.createWatcher(this, propName, this.getModel(propSplit[0]), propSplit[1]);
+        });
+    }
+    removeProperties(propNames) {
+        Util.each(propNames, name => {
+            if (this.__properties[name]) {
+                this.__properties[name].destroy();
+                delete this.__properties[name];
+            }
+        });
     }
 }

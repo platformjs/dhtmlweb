@@ -1,5 +1,6 @@
 .dweb-tree {
     cursor: default;
+    user-select: none;
     &.tree-block, .tree-block {
         .tree-row {
             padding: 2px 0;

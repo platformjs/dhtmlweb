@@ -1,10 +1,23 @@
 import Util from "../util/Util";
 
 export default {
-    create(meta) {
+    create(parent, meta) {
         const Clazz = this.getClassFromPath(meta.attr.clazz);
         const obj = new Clazz();
-        $.extend(true, obj.props, meta.attr);
+        parent.addComponents(obj);
+        $.extend(true, obj.props);
+        Util.each(meta.attr, (value, key) => {
+            if (Util.startWith(value, "{{") && Util.endWith(value, "}}")) {
+                obj.setProperties({
+                    [key]: value.substring(2, value.length - 2)
+                });
+            } else {
+                obj.set({
+                    [key]: value
+                });
+            }
+        });
+        //TODO what's this?
         obj.style = meta.style;
         
         if (meta.attr.extend) {
@@ -25,7 +38,7 @@ export default {
         
         if (meta.components) {
             meta.components.forEach(componentMeta => {
-                obj.addComponents(this.create(componentMeta));
+                this.create(obj, componentMeta)
             });
         }
         return obj;

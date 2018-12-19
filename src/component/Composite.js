@@ -5,14 +5,7 @@ import Container from "./Container";
 export default class Composite extends Container {
     constructor() {
         super();
-        this.template = `
-        <div>
-            <div>
-            </div>
-            <div>
-                <div></div>
-            </div>
-        </div>`;
+        this.template = null;
     }
     render() {
         this.$el = $(this.template);

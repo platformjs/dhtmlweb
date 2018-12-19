@@ -5,7 +5,8 @@
     opacity: 0.4; }
 
 .dhtmlweb .dweb-tree {
-  cursor: default; }
+  cursor: default;
+  user-select: none; }
   .dhtmlweb .dweb-tree.tree-block .tree-row, .dhtmlweb .dweb-tree .tree-block .tree-row {
     padding: 2px 0;
     border-radius: 2px; }
