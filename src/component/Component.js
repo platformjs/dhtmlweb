@@ -8,7 +8,7 @@ export default class Component extends Data {
         super();
         this.__bindHtmlEvents = {};
         this.__models = {};
-        this.__properties = {};
+        this.__attributes = {};
     }
 
     isMonted() {
@@ -75,7 +75,7 @@ export default class Component extends Data {
     render() {
         this.trigger("beforeComponentRender", this);
         this.$el = $(this.template);
-        dwebCompiler.compile(this.$el[0], this, this.signal);
+        dwebCompiler.compile(this.$el[0], this, this.signal, true);
         this.attachHtmlEvents();
         return this;
     }
@@ -98,21 +98,34 @@ export default class Component extends Data {
     setModel(name, model) {
         this.__models[name] = model;
     }
-    setProperties(properties) {
-        Util.each(properties, (prop, propName) => {
-            if (this.__properties[propName]) {
-                this.__properties[propName].destroy();
+    setAttributes(attributes) {
+        Util.each(attributes, (prop, propName) => {
+            if (this.__attributes[propName]) {
+                this.__attributes[propName].watcher.destroy();
             }
             const propSplit = prop.split(".");
-            this.__properties[propName] = Watcher.createWatcher(this, propName, this.getModel(propSplit[0]), propSplit[1]);
+            this.__attributes[propName] = {
+                watcher: Watcher.createWatcher(this, propName, this.getModel(propSplit[0]), propSplit[1]),
+                watched: prop
+            };
         });
     }
-    removeProperties(propNames) {
-        Util.each(propNames, name => {
-            if (this.__properties[name]) {
-                this.__properties[name].destroy();
-                delete this.__properties[name];
+    getAttribute(name) {
+        return this.__attributes[name];
+    }
+    removeAttributes(attrNames) {
+        if (!Array.isArray(attrNames)) {
+            attrNames = [attrNames];
+        }
+        Util.each(attrNames, name => {
+            if (this.__attributes[name]) {
+                this.__attributes[name].watcher.destroy();
+                delete this.__attributes[name];
             }
         });
+    }
+    dispose() {
+        this.trigger("onDisposed", this);
+        this.disposed = true;
     }
 }

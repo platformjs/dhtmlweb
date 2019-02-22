@@ -10,7 +10,7 @@ export default class Select extends Component {
             value: "null"
         });
         this.template = `
-        <div class="dweb-select" w-attr="id disabled:isDisabled()">
+        <div class="dweb-component dweb-select" w-attr="id disabled:isDisabled() style class:styleClass">
             <div class="dweb-select-current" w-text="text"></div>
             <div class="dweb-select-options">
                 Loading...

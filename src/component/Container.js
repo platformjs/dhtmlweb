@@ -5,8 +5,10 @@ import GridLayout from "../layout/GridLayout";
 export default class Container extends Component {
     constructor() {
         super();
-        this.template = `<div class="panel panel-default" w-attr="id disabled:isDisabled()" w-style="width;height">
-            <div class="panel-body"></div>
+        this.template = `<div class="dweb-component dweb-container" 
+            w-attr="id disabled:isDisabled() style class:styleClass" 
+            w-style="width;height">
+            <div class="dweb-content"></div>
         </div>`;
         this.components = [];
     }
@@ -44,7 +46,7 @@ export default class Container extends Component {
         this.$el = this.$containerEl = $(this.template);
         this.attachHtmlEvents();
         dwebCompiler.compile(this.$el[0], this, this.signal);
-        this.$contentEl = this.$containerEl.children().eq(0);
+        this.$contentEl = this.$containerEl.children(".dweb-content");
         this.getLayout().renderComponents(this);
         return this;
     }
@@ -63,5 +65,13 @@ export default class Container extends Component {
     }
     getContainerSize() {
         
+    }
+    getComponentByName(name) {
+        return Util.find(this.components, component => name === component.get("name"));
+    }
+    dispose() {
+        Util.each(this.components, component => component.dispose());
+        this.trigger("onDisposed", this);
+        this.disposed = true;
     }
 }

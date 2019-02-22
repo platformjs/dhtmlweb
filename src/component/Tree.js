@@ -6,7 +6,7 @@ export default class Tree extends Component {
         super();
         this.collapsedClass = "collapsed glyphicon-expand";
         this.expandedClass = "expanded glyphicon-collapse-down";
-        this.template = `<div class="dweb-tree tree-item" w-attr="id disabled:isDisabled()"><div class="tree-block"></div></div>`;
+        this.template = `<div class="dweb-component dweb-tree tree-item" w-attr="id disabled:isDisabled()"><div class="tree-block"></div></div>`;
         this.bind("html.click", (tree, evt) => {
             const $target = $(evt.target);
             const $item = this.getTreeItemEl(evt);

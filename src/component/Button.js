@@ -8,9 +8,9 @@ export default class Button extends Component {
             width: "auto",
             height: "auto"
         });
-        this.template = `<button type="button" class="btn btn-default" 
+        this.template = `<button type="button" class="dweb-component dweb-button" 
             w-style="width;height"
-            w-attr="id disabled:isDisabled()"
+            w-attr="id disabled:isDisabled() title style class:styleClass"
             w-html="title"></button>`;
     }
 }

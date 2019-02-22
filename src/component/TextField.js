@@ -7,7 +7,7 @@ export default class TextField extends Component {
             width: "100%"
         });
         this.template = `<input
-            w-attr="id disabled:isDisabled() readonly"
+            w-attr="id disabled:isDisabled() readonly style class:styleClass"
             w-value="value:value:displayFormat:inputParser:acceptValidator changedBy" w-style="width">`;
     }
 }

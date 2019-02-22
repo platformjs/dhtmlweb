@@ -10,7 +10,9 @@ import Select from "./src/component/Select.js";
 import SimpleTable from "./src/component/SimpleTable.js";
 import TextField from "./src/component/TextField.js";
 import Tree from "./src/component/Tree.js";
+import Collection from "./src/data/Collection.js";
 import Data from "./src/data/Data.js";
+import Model from "./src/data/Model.js";
 import Event from "./src/Event.js";
 import ComponentCreator from "./src/generator/ComponentCreator.js";
 import FlowLayout from "./src/layout/FlowLayout.js";
@@ -37,7 +39,9 @@ export default
       Tree,
     },
   data: {
+      Collection,
       Data,
+      Model,
     },
   Event,
   generator: {
