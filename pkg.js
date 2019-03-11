@@ -1,61 +1,67 @@
-import Button from "./src/component/Button.js";
-import Component from "./src/component/Component.js";
-import Composite from "./src/component/Composite.js";
-import Container from "./src/component/Container.js";
-import Form from "./src/component/Form.js";
-import Label from "./src/component/Label.js";
-import Page from "./src/component/Page.js";
-import Panel from "./src/component/Panel.js";
-import Select from "./src/component/Select.js";
-import SimpleTable from "./src/component/SimpleTable.js";
-import TextField from "./src/component/TextField.js";
-import Tree from "./src/component/Tree.js";
-import Collection from "./src/data/Collection.js";
-import Data from "./src/data/Data.js";
-import Model from "./src/data/Model.js";
-import Event from "./src/Event.js";
-import ComponentCreator from "./src/generator/ComponentCreator.js";
-import FlowLayout from "./src/layout/FlowLayout.js";
-import GridLayout from "./src/layout/GridLayout.js";
-import Layout from "./src/layout/Layout.js";
-import ErrorMessage from "./src/util/ErrorMessage.js";
-import Log from "./src/util/Log.js";
-import Util from "./src/util/Util.js";
-import Watcher from "./src/util/Watcher.js";
+import srccomponentComponentjs from "./src/component/Component.js";
+import srccomponentCompositejs from "./src/component/Composite.js";
+import srccomponentContainerjs from "./src/component/Container.js";
+import srccomponentFormjs from "./src/component/Form.js";
+import srccomponentLabeljs from "./src/component/Label.js";
+import srccomponentPagejs from "./src/component/Page.js";
+import srccomponentPaneljs from "./src/component/Panel.js";
+import srccomponentSelectjs from "./src/component/Select.js";
+import srccomponentSimpleTablejs from "./src/component/SimpleTable.js";
+import srccomponentTextFieldjs from "./src/component/TextField.js";
+import srccomponentTreejs from "./src/component/Tree.js";
+import srcdataCollectionjs from "./src/data/Collection.js";
+import srcdataDatajs from "./src/data/Data.js";
+import srcdataModeljs from "./src/data/Model.js";
+import srcEventjs from "./src/Event.js";
+import srcgeneratorComponentCreatorjs from "./src/generator/ComponentCreator.js";
+import srclayoutFlowLayoutjs from "./src/layout/FlowLayout.js";
+import srclayoutGridLayoutjs from "./src/layout/GridLayout.js";
+import srclayoutLayoutjs from "./src/layout/Layout.js";
+import srcuiBasicViewjs from "./src/ui/BasicView.js";
+import srcuiButtonjs from "./src/ui/Button.js";
+import srcuiTreejs from "./src/ui/Tree.js";
+import srcutilErrorMessagejs from "./src/util/ErrorMessage.js";
+import srcutilLogjs from "./src/util/Log.js";
+import srcutilUtiljs from "./src/util/Util.js";
+import srcutilWatcherjs from "./src/util/Watcher.js";
 export default
  {
   component: {
-      Button,
-      Component,
-      Composite,
-      Container,
-      Form,
-      Label,
-      Page,
-      Panel,
-      Select,
-      SimpleTable,
-      TextField,
-      Tree,
+      Component: srccomponentComponentjs,
+      Composite: srccomponentCompositejs,
+      Container: srccomponentContainerjs,
+      Form: srccomponentFormjs,
+      Label: srccomponentLabeljs,
+      Page: srccomponentPagejs,
+      Panel: srccomponentPaneljs,
+      Select: srccomponentSelectjs,
+      SimpleTable: srccomponentSimpleTablejs,
+      TextField: srccomponentTextFieldjs,
+      Tree: srccomponentTreejs,
     },
   data: {
-      Collection,
-      Data,
-      Model,
+      Collection: srcdataCollectionjs,
+      Data: srcdataDatajs,
+      Model: srcdataModeljs,
     },
-  Event,
+  Event: srcEventjs,
   generator: {
-      ComponentCreator,
+      ComponentCreator: srcgeneratorComponentCreatorjs,
     },
   layout: {
-      FlowLayout,
-      GridLayout,
-      Layout,
+      FlowLayout: srclayoutFlowLayoutjs,
+      GridLayout: srclayoutGridLayoutjs,
+      Layout: srclayoutLayoutjs,
+    },
+  ui: {
+      BasicView: srcuiBasicViewjs,
+      Button: srcuiButtonjs,
+      Tree: srcuiTreejs,
     },
   util: {
-      ErrorMessage,
-      Log,
-      Util,
-      Watcher,
+      ErrorMessage: srcutilErrorMessagejs,
+      Log: srcutilLogjs,
+      Util: srcutilUtiljs,
+      Watcher: srcutilWatcherjs,
     },
 }
