@@ -6,6 +6,7 @@ export default class BasicView {
         }
         this.__propertyChangedActions = [];
         this.__propertyChangedActions.props = {};
+        this.propertyChangedActions = {};
     }
     set(name, value) {
         const obj = typeof name === "string" ? {[name]: value} : name;

@@ -1,7 +1,7 @@
 import BasicView from "./BasicView";
 
 const template = `
-    <button type="button" class="btn btn-primary">Basic</button>
+    <button type="button" class="btn btn-primary">Untitled</button>
 `;
 export default class Button extends BasicView {
     constructor(props) {
